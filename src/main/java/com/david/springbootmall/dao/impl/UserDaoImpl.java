@@ -2,6 +2,7 @@ package com.david.springbootmall.dao.impl;
 
 import com.david.springbootmall.dao.UserDao;
 import com.david.springbootmall.dto.UserRegisterRequest;
+import com.david.springbootmall.model.OrderItem;
 import com.david.springbootmall.model.User;
 import com.david.springbootmall.rowmapper.UserRowMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +42,7 @@ public class UserDaoImpl implements UserDao {
             return null;
         }
     }
+
 
     @Override
     public User getUserByEmail(String email) {
