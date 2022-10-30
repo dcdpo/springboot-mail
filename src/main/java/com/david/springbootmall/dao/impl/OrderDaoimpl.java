@@ -26,7 +26,7 @@ public class OrderDaoimpl implements OrderDao {
     @Override
     public Order getOrderById(Integer orderId) {
         String sql = "SELECT order_id, user_id, total_amount, created_date, last_modified_date " +
-                "FROM 'order' WHERE order_id = :orderId";
+                "FROM `order` WHERE order_id = :orderId";
 
         Map<String, Object> map = new HashMap<>();
         map.put("orderId", orderId);
@@ -57,14 +57,14 @@ public class OrderDaoimpl implements OrderDao {
 
     @Override
     public Integer createOrder(Integer userId, Integer totalAmount) {
-        String sql = "INSERT INTO 'order'(user_id, total_amount, created_date, last_modified_date) " +
+        String sql = "INSERT INTO `order`(user_id, total_amount, created_date, last_modified_date) " +
                 "VALUES (:userId, :totalAmount, :createdDate, :lastModifiedDate)";
         Map<String,Object> map = new HashMap<>();
         map.put("userId", userId);
         map.put("totalAmount", totalAmount);
 
         Date now = new Date();
-        map.put("createdDao", now);
+        map.put("createdDate", now);
         map.put("lastModifiedDate", now);
 
         KeyHolder keyHolder = new GeneratedKeyHolder();
